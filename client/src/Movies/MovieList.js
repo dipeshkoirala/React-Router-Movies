@@ -5,8 +5,10 @@ import MovieCard from "./MovieCard";
 const MovieList = (props) => {
   return (
     <div className="movie-list">
-      {/* {props.movies.map((movie) => ( */}
-      <div>{/* <MovieDetails key={movie.id} movie={movie} /> */}</div>
+      {props.movies.map((movie) => (
+        <Movie>
+          <MovieDetails key={movie.id} movie={movie} />
+        </Movie>
       ))}
     </div>
   );
@@ -17,6 +19,7 @@ function MovieDetails(props) {
   const { title, director, metascore, stars } = props.movie;
   return (
     <div className="movie-card">
+      <Movie />
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>
