@@ -1,17 +1,20 @@
-import React from 'react';
+import React from "react";
+import Movie from "./Movie";
+import MovieCard from "./MovieCard";
 
-const MovieList = props => {
+const MovieList = (props) => {
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+      {/* {props.movies.map((movie) => ( */}
+      <div>{/* <MovieDetails key={movie.id} movie={movie} /> */}</div>
       ))}
     </div>
   );
-}
+};
 
-function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
+function MovieDetails(props) {
+  //{ movie })
+  const { title, director, metascore, stars } = props.movie;
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -23,7 +26,7 @@ function MovieDetails({ movie }) {
       </div>
       <h3>Actors</h3>
 
-      {stars.map(star => (
+      {stars.map((star) => (
         <div key={star} className="movie-star">
           {star}
         </div>
@@ -31,5 +34,5 @@ function MovieDetails({ movie }) {
     </div>
   );
 }
-
+export { MovieDetails };
 export default MovieList;
