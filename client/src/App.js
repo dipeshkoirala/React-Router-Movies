@@ -29,17 +29,18 @@ const App = () => {
     getMovies();
   }, []);
 
-  const addToSavedList = (movie) => {
-    setSavedList([...savedList, movie]);
+  const addToSavedList = (movieList) => {
+    setSavedList([...savedList, movieList]);
   };
   // console.log(addToSavedList());
   return (
     <div>
-      <SavedList list={savedList} />
+      <SavedList list={movieList} />
       {/* Replaced <div> Replace this Div with your Routes</div> */}
       <MovieList movies={movieList} />
       <Movie />
-      <Route exact path="/" component={MovieList} />
+      <Route exact path="/" component={savedList} />
+
       <Route path="/Movies/:id" component={Movie} />
     </div>
   );

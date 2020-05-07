@@ -7,6 +7,7 @@ const Movie = (props) => {
 
   useEffect(() => {
     const id = setMovie(props.id);
+    // const {id} = useParams(props.id);
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
     axios
@@ -19,7 +20,11 @@ const Movie = (props) => {
       });
   }, [props.id]);
   // const id = useParams();
-  // const el = movie.find((a) => `${a.id}` === id.id);
+
+  // const params = useParams();
+  // console.log("params", params);
+
+  // const el = movie.find((a) => `${a.id}` === params.id);
   // console.log(el);
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
