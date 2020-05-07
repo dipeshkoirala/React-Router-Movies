@@ -15,10 +15,11 @@ const App = () => {
   useEffect(() => {
     const getMovies = () => {
       axios
-        .get("http://localhost:5000/api/movies")
+        .get(`http://localhost:5000/api/movies`)
         .then((response) => {
           setMovieList(response.data);
 
+          console.log(response.data);
           //console.log(response.data);
         })
         .catch((error) => {
@@ -28,14 +29,16 @@ const App = () => {
     getMovies();
   }, []);
 
-  const addToSavedList = (movieList) => {
-    setSavedList([...savedList, movieList]);
+  const addToSavedList = (movie) => {
+    setSavedList([...savedList, movie]);
   };
-
+  // console.log(addToSavedList());
   return (
     <div>
       <SavedList list={savedList} />
-
+      {/* Replaced <div> Replace this Div with your Routes</div> */}
+      <MovieList movies={movieList} />
+      <Movie />
       <Route exact path="/" component={MovieList} />
       <Route path="/Movies/:id" component={Movie} />
     </div>

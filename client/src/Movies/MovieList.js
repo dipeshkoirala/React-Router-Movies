@@ -1,25 +1,21 @@
 import React from "react";
-import Movie from "./Movie";
-import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
+  console.log(props);
   return (
     <div className="movie-list">
       {props.movies.map((movie) => (
-        <Movie>
-          <MovieDetails key={movie.id} movie={movie} />
-        </Movie>
+        <MovieDetails key={movie.id} movie={movie} />
       ))}
     </div>
   );
 };
 
-function MovieDetails(props) {
+function MovieDetails({ movie }) {
   //{ movie })
-  const { title, director, metascore, stars } = props.movie;
+  const { title, director, metascore, stars } = movie;
   return (
     <div className="movie-card">
-      <Movie />
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>
@@ -37,5 +33,5 @@ function MovieDetails(props) {
     </div>
   );
 }
-export { MovieDetails };
+
 export default MovieList;
