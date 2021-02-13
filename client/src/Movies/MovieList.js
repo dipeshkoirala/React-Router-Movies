@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
 
-const MovieList = props => {
+const MovieList = (props) => {
+  console.log(props);
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
+      {props.movies.map((movie) => (
         <MovieDetails key={movie.id} movie={movie} />
       ))}
     </div>
   );
-}
+};
 
 function MovieDetails({ movie }) {
+  //{ movie })
   const { title, director, metascore, stars } = movie;
   return (
     <div className="movie-card">
@@ -23,7 +25,7 @@ function MovieDetails({ movie }) {
       </div>
       <h3>Actors</h3>
 
-      {stars.map(star => (
+      {stars.map((star) => (
         <div key={star} className="movie-star">
           {star}
         </div>
